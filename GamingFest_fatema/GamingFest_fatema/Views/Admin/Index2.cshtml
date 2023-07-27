@@ -1,0 +1,35 @@
+﻿@model List<GamingFest_fatema.Models.Admin>
+
+@{
+    ViewBag.Title = "Gaming Fest";
+    Layout = "~/Views/_Dashboard2.cshtml";
+}
+
+<h2>Index2</h2>
+
+<a href="/Admin/index2" class="btn btn-primary">Add Volunteer</a>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Dob</th>
+        <th>Gender</th>
+
+    </tr>
+
+
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.Id</td>
+            <td>@v.Name</td>
+            <td>@v.Dob</td>
+            <td>@v.Gender</td>
+
+        </tr>
+    }
+   
+
+
+
+</table>

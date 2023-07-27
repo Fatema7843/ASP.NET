@@ -1,0 +1,23 @@
+﻿
+@{
+  
+    ViewBag.Title = "Gaming Fest";
+    Layout = "~/Views/_Dashboard2.cshtml";
+}
+
+<h2>Volunteers_Info2</h2>
+
+<form action="/admin/volunteers_Info2" method="post">
+
+    Name:<input type="text" name="Name" class="form-control">
+    Dob:<input type="date" name="Dob" class="form-control">
+
+    Gender:<input type="radio" name="Gender" value=" Female ">Female
+    <input type="radio" name="Gender" value=" Male ">Male
+
+
+    <input type="submit" value="Add" class="btn btn-primary">
+
+
+
+</form>
