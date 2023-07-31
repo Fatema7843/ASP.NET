@@ -11,9 +11,9 @@ namespace GamingFest_fatema.Models
       
         public string Name { get; set; }
 
-        public string Dob { get; set; }
+        public string Date { get; set; }
 
-        public string Gender { get; set; }
+       
 
     }
 }
