@@ -1,8 +1,22 @@
-﻿
+﻿@model List<GamingFest_fatema.Models.game>
 @{
     ViewBag.Title = "Gaming Fest";
     Layout = "~/Views/_Dashboard2.cshtml";
 }
 
 <h2>Gameadd2</h2>
-
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var g in Model)
+            {
+<tr>
+    <td>@g.Id</td>
+    <td>@g.Name</td>
+    <td>@g.Date</td>
+</tr>
+            }
+</table>
