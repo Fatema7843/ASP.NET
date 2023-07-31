@@ -20,32 +20,51 @@ namespace GamingFest_fatema.Controllers
 
         public ActionResult Index2()
         {
-            string connString = @"Server=DESKTOP-KC1AJ4P\SQLEXPRESS; Database= gamingdata; Integrated Security=true";
+             string connString = @"Server=DESKTOP-KC1AJ4P\SQLEXPRESS; Database= brandnewdata; Integrated Security=true";
             SqlConnection conn = new SqlConnection(connString);
-            string query = String.Format("Insert into Students values ('{0}', '{1}', '{2}')", v.Name, v.Dob, v.Gender);
+            string query = "select * from games";
             SqlCommand cmd = new SqlCommand(query, conn);
             conn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
-            List<Admin> admin = new List<Admin>();
+            List<game> games = new List<game>();
             while (reader.Read())
             {
-                Admin v = new Admin()
+                game g = new game()
                 {
                     Id = reader.GetInt32(reader.GetOrdinal("Id")),
                     Name = reader.GetString(reader.GetOrdinal("Name")),
-                    Dob = reader.GetString(reader.GetOrdinal("Dob")),
-                    Gender = reader.GetString(reader.GetOrdinal("Gender"))
-                    //Cgpa = (float)reader.GetDouble(reader.GetOrdinal("Cgpa"))
+                    Date = reader.GetString(reader.GetOrdinal("Date")),
+                    
 
 
                 };
-                Admins.Add(v);
+                games.Add(g);
             }
 
             conn.Close();
-            return (Admins);
+            return View (games);
+        }
+        [HttpGet]
+          public ActionResult gCreate()
+        {
+            return View();
         }
 
+       [HttpPost]
+         public ActionResult gCreate(game g)
+        {
+            string connString = @"Server=DESKTOP-KC1AJ4P\SQLEXPRESS; Database= brandnewdata; Integrated Security=true";
+            SqlConnection conn = new SqlConnection(connString);
+            string query = String.Format("Insert into games values ('{0}', '{1}')", g.Name,g.Date);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            int r = cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+            return View();
+        
+        }
 
            
 
