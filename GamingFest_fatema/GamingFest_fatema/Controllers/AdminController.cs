@@ -18,7 +18,7 @@ namespace GamingFest_fatema.Controllers
             return View();
         }
 
-        public ActionResult Index2()
+        public ActionResult Gameadd2()
         {
              string connString = @"Server=DESKTOP-KC1AJ4P\SQLEXPRESS; Database= brandnewdata; Integrated Security=true";
             SqlConnection conn = new SqlConnection(connString);
