@@ -45,13 +45,13 @@ namespace GamingFest_fatema.Controllers
             return View (games);
         }
         [HttpGet]
-          public ActionResult gCreate()
+          public ActionResult Overview2()
         {
             return View();
         }
 
        [HttpPost]
-         public ActionResult gCreate(game g)
+         public ActionResult Overview2(game g)
         {
             string connString = @"Server=DESKTOP-KC1AJ4P\SQLEXPRESS; Database= brandnewdata; Integrated Security=true";
             SqlConnection conn = new SqlConnection(connString);
